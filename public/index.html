@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VESPER-XMD | WhatsApp Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .hero-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            padding: 2.5rem;
+            text-center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
+            animation: border-slide 4s linear infinite;
+        }
+
+        @keyframes border-slide {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(50%); }
+        }
+
+        .bot-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .bot-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-btn {
+            border: none;
+            padding: 0.9rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-pair {
+            background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+            color: white;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-pair:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(139, 92, 246, 0.5);
+            color: white;
+        }
+
+        .btn-qr {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-qr:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .badge-status {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 0.35rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-card">
+        <img src="https://files.catbox.moe/xd8cvb.jpg" alt="VESPER-XMD Logo" class="bot-logo">
+        <div class="badge-status">
+            <span class="status-dot"></span> System Online
+        </div>
+        <h1 class="bot-title h2">VESPER-XMD</h1>
+        <p class="text-secondary small mb-4">Advanced Multi-Device WhatsApp Userbot. Link your account using standard pairing code or QR scan to initiate session.</p>
+
+        <div class="d-grid gap-3">
+            <a href="/pair" class="action-btn btn-pair">
+                <i class="fa-solid fa-key"></i> Pair Code Link
+            </a>
+            <a href="/qr" class="action-btn btn-qr">
+                <i class="fa-solid fa-qrcode"></i> QR Code Scan
+            </a>
+        </div>
+
+        <div class="mt-4 pt-3 border-top border-secondary border-opacity-10 text-muted small">
+            Powered by Kevin Tech 
+        </div>
+    </div>
+
+</body>
+</html>
